@@ -21,6 +21,7 @@ def main() -> None:
     system.register_order(order)
     system.process_order(order)
 
+# we add some things to solve issue #1
 
 if __name__ == "__main__":
     main()
