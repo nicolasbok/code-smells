@@ -11,13 +11,31 @@ class FileManager:
             print(item)
 
     def create_file(self, name):
-        if name in self.file_system:
-            print(f"{name} already exists.")
+        bool = True
+        if bool:
+            if name in self.file_system:
+                print(f"{name} already exists.")
+            else:
+                self.file_system.append(name)
+                print(f"{name} created.")
         else:
-            self.file_system.append(name)
-            print(f"{name} created.")
+            print("wrong default")
 
+    
+    # renaming small files (files < 5GB)
+    
     def rename_file(self, old_name, new_name):
+        if old_name in self.file_system:
+            index = self.file_system.index(old_name)
+            self.file_system[index] = new_name
+            print(f"{old_name} renamed to {new_name}.")
+        else:
+            print(f"{old_name} not found.")
+
+    
+    #subroutine for bigger files. (files > 5GB)
+
+    def rename_big_file(self, old_name, new_name):
         if old_name in self.file_system:
             index = self.file_system.index(old_name)
             self.file_system[index] = new_name
